@@ -1,0 +1,6 @@
+adb shell am startservice -a com.aranteknoloji.PUSH_NOTIFICATION -n com.aranteknoloji.trainingpushnotification/.NotificationService -e "deneme" "sadkjladklaj"
+
+
+
+adb shell am startservice -a com.aranteknoloji.PUSH_NOTIFICATION -e 'text' "Here' 'is' 'the' 'definition' 'of' 'kind' 'of' 'SUCCESS"
+
