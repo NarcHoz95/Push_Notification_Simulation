@@ -2,12 +2,10 @@ package com.aranteknoloji.trainingpushnotification
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.Transformations
 import com.aranteknoloji.trainingpushnotification.room.RoomModel
 import com.aranteknoloji.trainingpushnotification.room.database
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class MainViewModel(app: Application) : AndroidViewModel(app) {
 
@@ -27,5 +25,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun textObservable() = myDatabase.roomDao().text()
+    fun textObservable() = Transformations.map(myDatabase.roomDao().text()) {
+        it ?: RoomModel(text = "Hello World")
+    }
 }

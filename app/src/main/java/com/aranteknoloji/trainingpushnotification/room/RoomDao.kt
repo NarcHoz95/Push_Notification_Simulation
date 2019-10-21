@@ -13,5 +13,5 @@ interface RoomDao {
     suspend fun insertText(roomModel: RoomModel)
 
     @Query("select * from MyTable")
-    fun text(): LiveData<RoomModel>
+    fun text(): LiveData<RoomModel?>
 }
